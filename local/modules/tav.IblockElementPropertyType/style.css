@@ -1,0 +1,17 @@
+.edit_trip_table {
+	margin-bottom: 1rem;
+}
+
+.edit_trip_table table {
+	width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+
+.edit_trip_table table th,
+.edit_trip_table table td {
+	padding: .75rem;
+    border-top: 1px solid #dee2e6;
+	vertical-align: top;
+}
+
