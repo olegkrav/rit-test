@@ -1,5 +1,5 @@
 function addPropTableRow(AttrId = 'PropTable') {
-	console.log('addPropTableRow AttrId: ', AttrId);
+	/* добавление новой строки таблицы дублированием первой строки */
 	obTable = BX(AttrId);
 	obBody = BX.findChild(obTable, {tag: 'tbody'});
 	arRows = BX.findChildren(obBody ,{tag: 'tr', className: 'trip-table-row'});
@@ -12,6 +12,7 @@ function addPropTableRow(AttrId = 'PropTable') {
 }	
 
 function clearElements(Source, ClearTagsName) {
+	/* очистка заполненных значений элементов ввода */
 	arElements = BX.findChildren(Source, {tag: ClearTagsName}, true);
 	arElements.forEach(function(el){
 		el.value = '';
@@ -19,6 +20,7 @@ function clearElements(Source, ClearTagsName) {
 }
 
 function setNewAttrs(Source, NewId, ClearTagsName) {
+	/* установка атрибутов для элементов ввода */
 	arElements = BX.findChildren(Source, {tag: ClearTagsName}, true);
 	arElements.forEach(function(el){
 		el.name = el.name.replace('[VALUE][0]', '[VALUE]['+NewId+']');

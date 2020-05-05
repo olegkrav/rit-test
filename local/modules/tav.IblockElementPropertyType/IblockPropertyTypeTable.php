@@ -1,6 +1,11 @@
 <?
 class IblockPropertyTypeTable
 {
+	/* Колонки таблицы:
+		Name - id
+		Title - Отображаемое имя
+		Type - тип поля ввода text/textarea
+	*/
 	public static $arColumns = [
 		[ 'Name' => 'project_id', 'Title' => 'Код проекта', 'Type' => 'text'],
 		[ 'Name' => 'place', 'Title' => 'Место назначения', 'Type' => 'textarea'],
@@ -73,6 +78,7 @@ class IblockPropertyTypeTable
 	
 	function GetPropertyHtml($PropertyValueId, $arPropertyValue, $strHTMLControlName, $isEditable = true)
 	{
+		/* Получение html-кода для свойства */
 		$strHtml = '<div class="edit_trip_table">';
 		if ($isEditable) 
 		{
@@ -93,6 +99,7 @@ class IblockPropertyTypeTable
 	
 	function GetInputElement($Type = 'text', $Attribute, $value = '')
 	{
+		/* получение html-кода элемента ввода */
 		switch ($Type)
 		{
 			case 'text':
@@ -108,6 +115,7 @@ class IblockPropertyTypeTable
 	
 	function GetHtmlTableRows($arRows, $strHTMLControlName) 
 	{	
+		/* получение html-кода строк таблицы для редактирования */
 		if (!is_array($arRows) || empty($arRows))
 		{
 			$strEmptyRow .= '<tr id="prop-table-row-0" class="trip-table-row" >';
@@ -139,6 +147,7 @@ class IblockPropertyTypeTable
 
 	function GetReadOnlyHtmlTableRows($arRows, $strHTMLControlName) 
 	{	
+		/* получение html-кода строк таблицы для просмотра */
 		if (!is_array($arRows) || empty($arRows))
 		{
 			$strHtmlRows = '<tr>';
@@ -163,6 +172,7 @@ class IblockPropertyTypeTable
 	}
 	
 	function GetHtmlTableHeader($AttrId = 'PropTable'){
+		/* получение html-кода шапки таблицы */
 		$strResult = '<table id="'.$AttrId.'"><tbody><tr "class="trip-table-header">';
 		foreach (self::$arColumns as $arColumn)
 		{
@@ -173,12 +183,14 @@ class IblockPropertyTypeTable
 	}
 	
 	function GetHtmlTableFooter(){
+		/* получение html-кода подвала таблицы */
 		$result = '</tbody></table>';
 		return $result;
 	}
 	
 	function GetHtmlAddButton($AttrId = 'PropTable')
 	{	
+		/* получение html-кода кнопки добавления строки*/
 		return '<input type="button" value="+ Добавить" class="trip-table-add-button" OnClick="addPropTableRow('.$AttrId.'); return false;" />';
 	}
 	
